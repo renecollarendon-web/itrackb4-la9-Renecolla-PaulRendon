@@ -3,25 +3,32 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 class MovieController extends Controller
 {
-       private function getMovies()
-    {
-        return [
+    private function getMovies()
+{
+    $path = storage_path('app/movies.json');
 
-            1 =>['id' => 1, 'title' => 'Your Name', 'genre' => 'Romance, Fantasy, Drama', 'rating' => 8.8, 'director' => 'Makoto Shinkai', 'year' => 2016],
-            2 =>['id' => 2, 'title' => 'A Silent Voice', 'genre' => 'Drama, Romance', 'rating' => 8.1, 'director' => 'Naoko Yamada ', 'year' => 2016],
-            3 =>['id' => 3, 'title' => 'Spirited Away', 'genre' => 'Fantasy, Adventure, Supernatural', 'rating' => 8.6, 'director' => 'Hayao Miyazaki', 'year' => 2001],
-            4 => ['id' => 4, 'title' => 'I Want To Eat Your Pancreas', 'genre' => 'Drama, Romance', 'rating' => 8.1, 'director' => 'Shinichiro Ushijima', 'year' => 2017],
-            5 =>['id' => 5, 'title' => 'Weathering With You', 'genre' => 'Romance, Fantasy, Drama', 'rating' => 8.2, 'director' => 'Makoto Shinkai', 'year' => 2019],
-            6 => ['id' => 6, 'title' => 'Princess Mononoke', 'genre' => 'Fantasy, Adventure, Action', 'rating' => 8.4, 'director' => 'Hayao Miyazaki', 'year' => 1997],
-        ];
+    if (!file_exists($path)) {
+        return [];
+    }
+
+    $json = file_get_contents($path);
+    return json_decode($json, true) ?? [];
 }
+
+private function saveMovies($movies)
+{
+    $path = storage_path('app/movies.json');
+    $json = json_encode($movies, JSON_PRETTY_PRINT);
+    file_put_contents($path, $json);
+}
+
     public function index(Request $request)
 {
     $allMovies = $this->getMovies();
-    
+
     $genre = $request->query('genre');
     $year = $request->query('year');
-    
+
     $movies = $allMovies;
     if ($genre !== null) {
         $movies = array_filter($movies, function($movie) use ($genre) {
@@ -45,17 +52,41 @@ class MovieController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        //
-    }
+{
+    return view('movies.create');
+}
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
+{
+    $validated = $request->validate([
+        'title' => 'required|max:100',
+        'genre' => 'required|in:Romance,Drama,Fantasy,Action',
+        'rating' => 'required|numeric',
+        'director' => 'required|max:100',
+        'year' => 'required|numeric',
+    ]);
+
+    $movies = $this->getMovies();
+
+    // Generate a new ID
+    $newId = empty($movies) ? 1 : max(array_keys($movies)) + 1;
+
+    $movies[$newId] = [
+        'id' => $newId,
+        'title' => $validated['title'],
+        'genre' => $validated['genre'],
+        'rating' => $validated['rating'],
+        'director' => $validated['director'],
+        'year' => $validated['year'],
+    ];
+
+    $this->saveMovies($movies);
+
+    return redirect()->route('movies.index')->with('success', 'Movie added successfully.');
+}
 
     public function show(string $id)
     {
@@ -69,17 +100,17 @@ class MovieController extends Controller
 
     public function edit(string $id)
     {
-        
+
     }
 
     public function update(Request $request, string $id)
     {
-        
+
     }
 
     public function destroy(string $id)
     {
-        
+
     }
 public function featured()
 {
@@ -89,6 +120,6 @@ public function featured()
 }
 
 
-    
+
 }
 
