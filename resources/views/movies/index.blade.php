@@ -28,6 +28,7 @@
 </div>
 
 <a href="{{ route('movies.index') }}" class="btn btn-secondary">Clear All Filters</a>
+<a href="{{ route('movies.create') }}" class="btn btn-success mb-3">Add New Movie</a>
 
  <h1> My Favorite Movies</h1>
 
@@ -43,7 +44,7 @@
             <th>Action</th>
         </tr>
         </thead>
-        
+
         @forelse ($movies as $movie)
         <tr class="{{ $movie['rating'] >= 8.5 ? 'table-success' : '' }}">
             <td>{{ $loop->iteration }}</td>

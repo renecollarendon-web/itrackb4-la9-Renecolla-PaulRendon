@@ -9,11 +9,24 @@
 <body>
     <header>
         <h1>My Anime Movie Collection</h1>
-        <p>Paul Rendon B. Renecolla | Block 4A</p>
+        <p>Paul Rendon B. Ranecolla | Block 4A</p>
         @include('partials._nav')
     </header>
+
     <main class="container mt-4">
+        {{-- ✅ FLASH MESSAGE DISPLAY --}}
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
         @yield('content')
     </main>
+
+    <footer>
+        <p>&copy; 2026 Paul Rendon B. Ranecolla</p>
+    </footer>
 </body>
+
 </html>
