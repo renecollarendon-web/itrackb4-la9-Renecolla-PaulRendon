@@ -1,17 +1,15 @@
-ITRACKB4 - Laboratory Activity 7
+ITRACKB4 - Laboratory Activity 9
 
-Q1: Your form sends data with POST rather than GET. Explain what would go wrong if it used GET instead. Your answer should say something about what a browser does when a page is refreshed.
+F1: Which column did you make nullable, and why that one and not another?
 
-Answer:
-If the form used GET, all the data the visitor typed would be placed in the URL instead of the request body. When the visitor refreshes the page, the browser simply repeats the last request, which would be the GET request with all the data still in the URL. That means the record would be saved again every time the page is refreshed. Using POST avoids this because POST is not safe to repeat, and the redirect after saving changes the last request into a harmless GET.
+I made the `remarks` column nullable because it holds optional notes about a movie, and not every movie needs a remark. The other columns like `title`, `genre`, `rating`, `director`, and `year` are required because the filters and detail page depend on them. If I made `title` nullable, a movie could exist with no name, which would break the list display. Choosing `remarks` was deliberate because it is the only field that is truly optional for the visitor.
 
-Q2: When validation fails, your controller does not run the code that saves the record — and you did not write an if statement to stop it. Explain what actually stops it, and where the visitor ends up.
 
-Answer:
-The validate() method stops the controller on its own when any rule fails. It throws a validation exception, so the lines after it never run, even without an if statement. Laravel then redirects the visitor back to the form page and puts the error messages into the session. That is why the visitor lands back on the create page with the errors showing.
+F2: Which step failed first for you, and what did the error say?
 
-Q3: Your success message is displayed from the layout, which renders on every page. Explain why it does not appear on every page.
+The first step that failed was creating a record in Tinker before adding `$fillable` to the Movie model. The error said `MassAssignmentException: Add [title] to fillable property to allow mass assignment on [App\Models\Movie]`. This happened because Laravel blocks mass assignment by default to protect the database. After I added the `$fillable` list, the same command worked and the record was saved.
 
-Answer:
-The success message is a flash message, which means it is stored in the session for exactly one request only. Even though the layout renders on every page, session('success') only has a value on the first request after the redirect. On the next request, the value is already gone, so the message does not show again. That is why the layout can check for it everywhere without the message appearing everywhere.
+F3: You changed no Blade file in Part D, yet your pages still work. Why not?
+
+I did not edit any Blade file because only the controller changed, not the views. The Blade files still receive the same `$movies` and `$movie` variables, so they do not care whether the data came from a JSON file or a database. As long as the variable names and structure stay the same, the views render correctly. This is the benefit of separating the controller from the view in Laravel.
 
