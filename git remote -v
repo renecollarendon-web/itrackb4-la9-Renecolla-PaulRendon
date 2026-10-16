@@ -1,0 +1,95 @@
+[33mcommit 00c540145f616a9901dbf7efd86120296e7a8fc8[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Paul Rendon B. Ranecolla <renecollarendon@gmail.com>
+Date:   Wed Sep 30 16:01:38 2026 +0800
+
+    Add README with answers to reflection questions
+
+[33mcommit ddda72331090cb908cdb4a0b4bfddac5cfd0d9fc[m
+Author: Paul Rendon B. Ranecolla <renecollarendon@gmail.com>
+Date:   Wed Sep 30 16:01:22 2026 +0800
+
+    Add create form with validation, errors, and Post-Redirect-Get pattern
+
+[33mcommit 991cb8f746477726a72cde67b321bfdc2785802c[m
+Author: Paul Rendon B. Ranecolla <renecollarendon@gmail.com>
+Date:   Wed Sep 30 16:00:19 2026 +0800
+
+    Move movie data to JSON file with read and write helpers
+
+[33mcommit 6e439de8bc42b754fe11a2bad7c5480b2250434e[m
+Author: Paul Rendon B. Renecolla <renecollarendon@gmail.com>
+Date:   Wed Sep 23 23:22:59 2026 +0800
+
+    Add redirect for old filter URL, remove old filter method and view, add README
+
+[33mcommit 285bcb8be86b52c67d3f47ff16592319d67e09df[m
+Author: Paul Rendon B. Renecolla <renecollarendon@gmail.com>
+Date:   Wed Sep 23 23:22:42 2026 +0800
+
+    Add genre and year filters using query strings
+
+[33mcommit c466b24348c55a34b7010755d94a4d50b8da3846[m
+Author: Paul Rendon B. Renecolla <renecollarendon@gmail.com>
+Date:   Wed Sep 16 20:45:13 2026 +0800
+
+    Register routes with one resource line, custom route above
+
+[33mcommit d6adf3f394e648072e53f6ea15e5099e4b3a0a66[m
+Author: Paul Rendon B. Renecolla <renecollarendon@gmail.com>
+Date:   Wed Sep 16 20:44:52 2026 +0800
+
+    Generate resource controller with seven conventional methods
+
+[33mcommit 25b0cd707408e3b505818d2a529f94f6ece8988a[m
+Author: Paul Rendon B. Renecolla <renecollarendon@gmail.com>
+Date:   Sat Sep 12 14:52:49 2026 +0800
+
+    Apply Bootstrap through layout to style all pages
+
+[33mcommit e2c59f2b13bc6c7f15ebbadbe2f3d0a3c1f0bd4a[m
+Author: Paul Rendon B. Renecolla <renecollarendon@gmail.com>
+Date:   Sat Sep 12 14:52:08 2026 +0800
+
+    Add navigation partial included from layout with route-name links
+
+[33mcommit 771ef3292540503310875e340dfcea1ccac6c8af[m
+Author: Paul Rendon B. Renecolla <renecollarendon@gmail.com>
+Date:   Sat Sep 12 14:51:47 2026 +0800
+
+    Create layout and convert list and detail pages to extend it
+
+[33mcommit 8fd81b7279ce912081a920295d4181470d76ae3e[m
+Author: Paul Rendon B. Renecolla <renecollarendon@gmail.com>
+Date:   Wed Sep 2 09:01:17 2026 +0800
+
+    Part F: Add README with answers to reflection questions
+
+[33mcommit d5a06b2c267b8df2badd345569e2dd00f9a82e9d[m
+Author: Paul Rendon B. Renecolla <renecollarendon@gmail.com>
+Date:   Wed Sep 2 09:01:01 2026 +0800
+
+    Part F: Replace hard-coded URLs with route names in all views
+
+[33mcommit 2ba2cbd15e1858d1643421d6710ef79aa4796702[m
+Author: Paul Rendon B. Renecolla <renecollarendon@gmail.com>
+Date:   Wed Sep 2 09:00:23 2026 +0800
+
+    Part D: Add filter page with optional parameter and genre filtering
+
+[33mcommit fc4cebb6a9a4030cbc8e5281713ed3b206cde5bb[m
+Author: Paul Rendon B. Renecolla <renecollarendon@gmail.com>
+Date:   Wed Sep 2 08:48:24 2026 +0800
+
+    Part B: Add detail page route, show method, and 404 handling
+
+[33mcommit b9716e10f193a5feebaceb15df793e735dc75754[m
+Author: Paul Rendon B. Renecolla <renecollarendon@gmail.com>
+Date:   Wed Sep 2 08:47:55 2026 +0800
+
+    Part A: Restructure movie data into helper method with 6 movies and 4+ fields
+
+[33mcommit 2eedfc12e7dc2ba393b651f36bd7639068a91c05[m
+Author: Paul Rendon B. Renecolla <renecollarendon@gmail.com>
+Date:   Thu Aug 20 20:22:42 2026 +0800
+
+    Add movie list route, controller and view
